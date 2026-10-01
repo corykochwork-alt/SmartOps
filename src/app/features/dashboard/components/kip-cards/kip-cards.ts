@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-kip-cards',
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './kip-cards.html',
   styleUrl: './kip-cards.css',
 })
-export class KipCards {}
+export class KipCards {
+  kpiName = input.required<string>();
+  kpiNumber = input.required<number>();
+}

@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<app-kip-cards [kpiName]="activeAlarms.Name" [kpiNumber]="activeAlarms.Number"></app-kip-cards>
+<app-kip-cards [kpiName]="assetsOnline.Name" [kpiNumber]="assetsOnline.Number"></app-kip-cards>
+<app-kip-cards [kpiName]="uptime.Name" [kpiNumber]="uptime.Number"></app-kip-cards>
+<app-kip-cards [kpiName]="averageResponse.Name" [kpiNumber]="averageResponse.Number"></app-kip-cards>
+
+<app-alarm-trend-chart></app-alarm-trend-chart>
+<app-recent-alarms></app-recent-alarms>
