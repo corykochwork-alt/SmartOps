@@ -1,4 +1,13 @@
 app-kip-cards {
-    float:left;
     margin: 15px;
+}
+
+.kpis {
+    display:flex;
+    flex-direction: row;
+}
+
+.alarms { 
+    display: flex;
+    flex-direction: column;
 }
