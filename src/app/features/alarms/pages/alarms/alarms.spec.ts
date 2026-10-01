@@ -13,10 +13,15 @@ describe('Alarms', () => {
 
     fixture = TestBed.createComponent(Alarms);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the alarms page content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('alarms works!');
   });
 });

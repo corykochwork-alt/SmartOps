@@ -13,4 +13,8 @@ describe('CurrentUser', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should be injectable as a root service', () => {
+    expect(service).toBeInstanceOf(CurrentUser);
+  });
 });

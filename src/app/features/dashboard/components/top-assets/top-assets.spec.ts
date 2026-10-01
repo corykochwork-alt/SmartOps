@@ -13,10 +13,15 @@ describe('TopAssets', () => {
 
     fixture = TestBed.createComponent(TopAssets);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the top assets page text', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('top-assets works!');
   });
 });

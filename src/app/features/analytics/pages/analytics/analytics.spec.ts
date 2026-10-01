@@ -13,10 +13,15 @@ describe('Analytics', () => {
 
     fixture = TestBed.createComponent(Analytics);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the analytics page content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('analytics works!');
   });
 });

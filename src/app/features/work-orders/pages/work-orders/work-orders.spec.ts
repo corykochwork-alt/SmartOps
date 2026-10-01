@@ -13,10 +13,15 @@ describe('WorkOrders', () => {
 
     fixture = TestBed.createComponent(WorkOrders);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the work orders page content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('work-orders works!');
   });
 });

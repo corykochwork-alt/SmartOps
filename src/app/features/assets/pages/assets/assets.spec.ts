@@ -13,10 +13,15 @@ describe('Assets', () => {
 
     fixture = TestBed.createComponent(Assets);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the assets page content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('assets works!');
   });
 });

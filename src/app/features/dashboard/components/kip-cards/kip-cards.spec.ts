@@ -13,10 +13,19 @@ describe('KipCards', () => {
 
     fixture = TestBed.createComponent(KipCards);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.componentRef.setInput('kpiName', 'Assets Online');
+    fixture.componentRef.setInput('kpiNumber', 1428);
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the KPI title and value', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('h1')?.textContent).toBe('Assets Online');
+    expect(compiled.querySelector('p')?.textContent).toBe('1428');
   });
 });

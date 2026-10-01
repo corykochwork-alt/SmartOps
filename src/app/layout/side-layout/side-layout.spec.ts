@@ -13,10 +13,15 @@ describe('SideLayout', () => {
 
     fixture = TestBed.createComponent(SideLayout);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the side layout text', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('side-layout works!');
   });
 });
