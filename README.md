@@ -1,4 +1,4 @@
-# SmartOps Monitor
+# SmartOps Monitor   [![build](https://github.com/corykochwork-alt/SmartOps/actions/workflows/build.yml/badge.svg)](https://github.com/corykochwork-alt/SmartOps/actions/workflows/build.yml)
 
 SmartOps Monitor is an Angular application for monitoring operational health across industrial assets. It brings alarms, asset status, analytics, notifications, and work-order workflows into one browser-based operations console.
 
