@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 import { Dashboard } from './dashboard';
@@ -11,7 +13,27 @@ describe('Dashboard', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Dashboard],
-      providers: [DashboardApi, provideCharts(withDefaultRegisterables())],
+      providers: [
+        provideCharts(withDefaultRegisterables()),
+        provideRouter([]),
+        {
+          provide: DashboardApi,
+          useValue: {
+            getDashboardMetrics: {
+              value: signal({
+                activeAlarms: { Name: 'Active Alarms', Number: 12 },
+                assetsOnline: { Name: 'Assets Online', Number: 1428 },
+                uptime: { Name: 'Uptime', Number: 99 },
+                averageResponse: { Name: 'Average Response', Number: 4 },
+              }),
+            },
+            getTopAlarmSources: { value: signal([]) },
+            getTotalAlarms: { value: signal([]) },
+            getCriticalAlarms: { value: signal([]) },
+            getWarningAlarms: { value: signal([]) },
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Dashboard);
