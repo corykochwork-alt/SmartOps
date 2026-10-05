@@ -27,8 +27,6 @@ describe('Dashboard', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.querySelectorAll('app-kip-cards').length).toBe(4);
-    expect(compiled.textContent).toContain('Active Alarms');
-    expect(compiled.textContent).toContain('Assets Online');
     expect(compiled.textContent).toContain('Alarm Trend (Last 30 Days)');
     expect(compiled.textContent).toContain('Recent Critical Events');
   });

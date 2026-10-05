@@ -1,8 +1,8 @@
 <div class="kpis">
-    <app-kip-cards [kpiName]="activeAlarms.Name" [kpiNumber]="activeAlarms.Number"></app-kip-cards>
-    <app-kip-cards [kpiName]="assetsOnline.Name" [kpiNumber]="assetsOnline.Number"></app-kip-cards>
-    <app-kip-cards [kpiName]="uptime.Name" [kpiNumber]="uptime.Number"></app-kip-cards>
-    <app-kip-cards [kpiName]="averageResponse.Name" [kpiNumber]="averageResponse.Number"></app-kip-cards>
+    <app-kip-cards routerLink="/alarms" [kpiName]="metrics().activeAlarms.Name" [kpiNumber]="metrics().activeAlarms.Number"></app-kip-cards>
+    <app-kip-cards routerLink="/assets" [kpiName]="metrics().assetsOnline.Name" [kpiNumber]="metrics().assetsOnline.Number"></app-kip-cards>
+    <app-kip-cards routerLink="/analytics" [kpiName]="metrics().uptime.Name" [kpiNumber]="metrics().uptime.Number"></app-kip-cards>
+    <app-kip-cards routerLink="/analytics" [kpiName]="metrics().averageResponse.Name" [kpiNumber]="metrics().averageResponse.Number"></app-kip-cards>
 </div>
 
 <div class="alarms">

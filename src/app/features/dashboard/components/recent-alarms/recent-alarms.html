@@ -11,26 +11,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Critical</td>
-            <td>Conveyor A-12</td>
-            <td>Temperature High</td>
-            <td>12:15 PM</td>
-            <td>Unacknowledged</td>
-        </tr>
-        <tr>
-            <td>Critical</td>
-            <td>Robot Cell</td>
-            <td>Offline</td>
-            <td>11:59 AM</td>
-            <td>Acknowledged</td>
-        </tr>
-        <tr>
-            <td>Warning</td>
-            <td>Sensor</td>
-            <td>Drift</td>
-            <td>11:42 AM</td>
-            <td>Resolved</td>
-        </tr>
+        @for(alarm of alarms; track alarm.AssetName) {
+            <tr>
+                <td>{{ alarm.Severity }}</td>
+                <td>{{ alarm.AssetName }}</td>
+                <td>{{ alarm.Message }}</td>
+                <td>{{ alarm.Time }}</td>
+                <td>{{ alarm.Status }}</td>
+            </tr>
+        }
     </tbody>
 </table>

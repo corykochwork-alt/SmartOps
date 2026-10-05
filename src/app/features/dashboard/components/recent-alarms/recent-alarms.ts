@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DashboardData } from '../../services/dashboard-data';
 
 @Component({
   selector: 'app-recent-alarms',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './recent-alarms.html',
   styleUrl: './recent-alarms.css',
 })
-export class RecentAlarms {}
+export class RecentAlarms {
+  alarms = DashboardData.alarms;
+}

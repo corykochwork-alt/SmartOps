@@ -1,35 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Kpi } from '../models/kpi';
+import { DashboardMetrics } from '../models/dashboard-metrics';
+import { httpResource } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardApi {
-  getActiveAlarms(): Kpi {
-    return {
-      Name: "Active Alarms",
-      Number: 12
-    };
-  }
+  private baseUrl = 'api/dashboard';
 
-  getAssetsOnline(): Kpi {
-    return {
-      Name: "Assets Online",
-      Number: 1428
-    }
-  }
+  getDashboardMetrics = httpResource<DashboardMetrics>(() => `${this.baseUrl}/kpis`, {
+    defaultValue: {
+      activeAlarms: { Name: '', Number: 0 },
+      assetsOnline: { Name: '', Number: 0 },
+      uptime: { Name: '', Number: 0 },
+      averageResponse: { Name: '', Number: 0 },
+    },
+  });
 
-  getUptime(): Kpi {
-    return {
-      Name: "Uptime",
-      Number: 99.82 // TODO percent
-    }
-  }
+  getTopAlarmSources = httpResource<{ Name: string; Percentage: number }[]>(
+    () => `${this.baseUrl}/top-alarm-sources`,
+    { defaultValue: [] },
+  );
 
-  getAverageResponse(): Kpi {
-    return {
-      Name: "Avg Response",
-      Number: 3.2 // TODO Min
-    }
-  }
+  getTotalAlarms = httpResource<number[]>(
+    () => `${this.baseUrl}/totalAlarms`,
+    { defaultValue: [] },
+  );
+
+  getCriticalAlarms = httpResource<number[]>(
+    () => `${this.baseUrl}/criticalAlarms`,
+    { defaultValue: [] },
+  );
+
+  getWarningAlarms = httpResource<number[]>(
+    () => `${this.baseUrl}/warningAlarms`,
+    { defaultValue: [] },
+  );
 }
