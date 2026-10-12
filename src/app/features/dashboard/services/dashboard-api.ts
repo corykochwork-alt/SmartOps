@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DashboardMetrics } from '../models/dashboard-metrics';
 import { DashboardAlarm } from '../models/dashboard-alarm';
+import { DashboardAsset } from '../models/dashboard-asset';
 import { httpResource } from '@angular/common/http';
 
 @Injectable({
@@ -29,6 +30,11 @@ export class DashboardApi {
 
   readonly getRecentAlarms = httpResource<DashboardAlarm[]>(
     () => ({ url: `${this.baseUrl}/alarms`, timeout: this.requestTimeout }),
+    { defaultValue: [] },
+  );
+
+  readonly getTopAssets = httpResource<DashboardAsset[]>(
+    () => ({ url: `${this.baseUrl}/top-assets`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 

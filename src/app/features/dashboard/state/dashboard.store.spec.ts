@@ -17,6 +17,7 @@ describe('DashboardStore', () => {
     metrics: TestResource;
     sources: TestResource;
     recentAlarms: TestResource;
+    topAssets: TestResource;
     totalAlarms: TestResource;
     criticalAlarms: TestResource;
     warningAlarms: TestResource;
@@ -38,6 +39,7 @@ describe('DashboardStore', () => {
       metrics: createResource({}),
       sources: createResource([]),
       recentAlarms: createResource([]),
+      topAssets: createResource([]),
       totalAlarms: createResource([1, 2, 3]),
       criticalAlarms: createResource([1, 1, 1]),
       warningAlarms: createResource([2, 2, 2]),
@@ -51,6 +53,7 @@ describe('DashboardStore', () => {
             getDashboardMetrics: resources.metrics,
             getTopAlarmSources: resources.sources,
             getRecentAlarms: resources.recentAlarms,
+            getTopAssets: resources.topAssets,
             getTotalAlarms: resources.totalAlarms,
             getCriticalAlarms: resources.criticalAlarms,
             getWarningAlarms: resources.warningAlarms,

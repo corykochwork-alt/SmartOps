@@ -1,3 +1,11 @@
+<header class="dashboard-header">
+    <div>
+        <p class="eyebrow">Operations overview</p>
+        <h1>Dashboard</h1>
+    </div>
+    <button type="button" (click)="refresh()">Refresh data</button>
+</header>
+
 <div class="kpis">
     <app-kip-cards routerLink="/alarms" [kpiName]="metrics().activeAlarms.Name" [kpiNumber]="metrics().activeAlarms.Number" [isLoading]="isLoading()" [hasError]="!!hasError()"></app-kip-cards>
     <app-kip-cards routerLink="/assets" [kpiName]="metrics().assetsOnline.Name" [kpiNumber]="metrics().assetsOnline.Number" [isLoading]="isLoading()" [hasError]="!!hasError()"></app-kip-cards>
@@ -9,3 +17,5 @@
     <app-alarm-trend-chart></app-alarm-trend-chart>
     <app-recent-alarms></app-recent-alarms>
 </div>
+
+<app-top-assets></app-top-assets>

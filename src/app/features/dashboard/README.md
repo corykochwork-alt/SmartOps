@@ -26,6 +26,7 @@ Dashboard page/components -> DashboardStore -> DashboardApi -> HTTP backend
 | `kpis` | `DashboardMetrics` | Dashboard page |
 | `top-alarm-sources` | `{ Name: string; Percentage: number }[]` | Alarm trend component |
 | `alarms` | `DashboardAlarm[]` | Recent alarms component |
+| `top-assets` | `DashboardAsset[]` | Top assets component |
 | `totalAlarms` | `number[]` | Alarm trend component |
 | `criticalAlarms` | `number[]` | Alarm trend component |
 | `warningAlarms` | `number[]` | Alarm trend component |

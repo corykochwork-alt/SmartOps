@@ -11,6 +11,7 @@ export class DashboardStore {
 	readonly metrics = this.dashboardApi.getDashboardMetrics.value;
 	readonly topAlarmSources = this.dashboardApi.getTopAlarmSources.value;
 	readonly recentAlarms = this.dashboardApi.getRecentAlarms.value;
+	readonly topAssets = this.dashboardApi.getTopAssets.value;
 	readonly totalAlarms = this.dashboardApi.getTotalAlarms.value;
 	readonly criticalAlarms = this.dashboardApi.getCriticalAlarms.value;
 	readonly warningAlarms = this.dashboardApi.getWarningAlarms.value;
@@ -20,6 +21,7 @@ export class DashboardStore {
 			this.dashboardApi.getDashboardMetrics.isLoading() ||
 			this.dashboardApi.getTopAlarmSources.isLoading() ||
 			this.dashboardApi.getRecentAlarms.isLoading() ||
+			this.dashboardApi.getTopAssets.isLoading() ||
 			this.dashboardApi.getTotalAlarms.isLoading() ||
 			this.dashboardApi.getCriticalAlarms.isLoading() ||
 			this.dashboardApi.getWarningAlarms.isLoading(),
@@ -33,6 +35,7 @@ export class DashboardStore {
 	);
 
 	readonly isSourcesLoading = this.dashboardApi.getTopAlarmSources.isLoading;
+	readonly isAssetsLoading = this.dashboardApi.getTopAssets.isLoading;
 	readonly trendError = computed(
 		() =>
 			this.dashboardApi.getTotalAlarms.error() ??
@@ -40,12 +43,14 @@ export class DashboardStore {
 			this.dashboardApi.getWarningAlarms.error(),
 	);
 	readonly sourcesError = this.dashboardApi.getTopAlarmSources.error;
+	readonly assetsError = this.dashboardApi.getTopAssets.error;
 
 	readonly error = computed(
 		() =>
 			this.dashboardApi.getDashboardMetrics.error() ??
 			this.dashboardApi.getTopAlarmSources.error() ??
 			this.dashboardApi.getRecentAlarms.error() ??
+			this.dashboardApi.getTopAssets.error() ??
 			this.dashboardApi.getTotalAlarms.error() ??
 			this.dashboardApi.getCriticalAlarms.error() ??
 			this.dashboardApi.getWarningAlarms.error(),
@@ -61,6 +66,7 @@ export class DashboardStore {
 		this.dashboardApi.getDashboardMetrics.reload();
 		this.dashboardApi.getTopAlarmSources.reload();
 		this.dashboardApi.getRecentAlarms.reload();
+		this.dashboardApi.getTopAssets.reload();
 		this.dashboardApi.getTotalAlarms.reload();
 		this.dashboardApi.getCriticalAlarms.reload();
 		this.dashboardApi.getWarningAlarms.reload();

@@ -1,0 +1,38 @@
+<section class="panel" aria-labelledby="top-assets-title">
+    <div class="panel-header">
+        <div>
+            <p class="eyebrow">Asset health</p>
+            <h2 id="top-assets-title">Top monitored assets</h2>
+        </div>
+        <a routerLink="/assets">View all assets</a>
+    </div>
+
+    @if (isLoading()) {
+        <p class="state">Loading asset health...</p>
+    } @else if (error()) {
+        <p class="state error">Unable to load asset health.</p>
+    } @else if (assets().length === 0) {
+        <p class="state">No asset health data is available.</p>
+    } @else {
+        <div class="asset-grid">
+            @for (asset of assets(); track asset.Name) {
+                <article class="asset">
+                    <div class="asset-heading">
+                        <h3>{{ asset.Name }}</h3>
+                        <span class="status" [class.maintenance]="asset.Status === 'Maintenance'" [class.offline]="asset.Status === 'Offline'">{{ asset.Status }}</span>
+                    </div>
+                    <dl>
+                        <div>
+                            <dt>Uptime</dt>
+                            <dd>{{ asset.Uptime }}%</dd>
+                        </div>
+                        <div>
+                            <dt>Open alarms</dt>
+                            <dd>{{ asset.AlarmCount }}</dd>
+                        </div>
+                    </dl>
+                </article>
+            }
+        </div>
+    }
+</section>

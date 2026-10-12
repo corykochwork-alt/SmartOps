@@ -1,0 +1,153 @@
+:host {
+    display: block;
+    padding: 0 20px 20px;
+}
+
+.panel {
+    padding: 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-surface);
+}
+
+.panel-header,
+.asset-heading,
+dl,
+dl > div {
+    display: flex;
+}
+
+.panel-header,
+.asset-heading,
+dl {
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.panel-header {
+    align-items: end;
+    margin-bottom: 16px;
+}
+
+.eyebrow {
+    margin: 0 0 4px;
+    color: var(--color-accent-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h2,
+h3,
+dl,
+dd,
+.state {
+    margin: 0;
+}
+
+h2 {
+    color: var(--color-text);
+    font-size: 1.35rem;
+}
+
+h3 {
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+a {
+    color: var(--color-accent-dark);
+    font-weight: 600;
+}
+
+.asset-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.asset {
+    padding: 14px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 4px;
+}
+
+.asset-heading {
+    align-items: start;
+    margin-bottom: 14px;
+}
+
+.status {
+    flex: 0 0 auto;
+    padding: 3px 7px;
+    color: #1b6a4e;
+    background: #e0f2e9;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status.maintenance {
+    color: #8a5a00;
+    background: #fff1cf;
+}
+
+.status.offline {
+    color: #a12828;
+    background: #fde4e4;
+}
+
+dl {
+    gap: 12px;
+}
+
+dl > div {
+    flex-direction: column;
+    gap: 3px;
+}
+
+dt {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+}
+
+dd {
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.state {
+    color: var(--color-muted);
+}
+
+.state.error {
+    color: #a12828;
+}
+
+@media (max-width: 900px) {
+    .asset-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    :host {
+        padding: 0 12px 12px;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .panel-header {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .asset-grid {
+        grid-template-columns: 1fr;
+    }
+}

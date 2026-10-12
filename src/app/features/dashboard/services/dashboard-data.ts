@@ -38,6 +38,13 @@ export class DashboardData {
         }
     ];
 
+    static readonly topAssets = [
+        { Name: "Conveyor A-12", Status: "Online", Uptime: 99.8, AlarmCount: 2 },
+        { Name: "Robot Cell 5", Status: "Online", Uptime: 98.6, AlarmCount: 4 },
+        { Name: "Packaging Line", Status: "Maintenance", Uptime: 94.2, AlarmCount: 1 },
+        { Name: "Sensor Array 4", Status: "Online", Uptime: 99.4, AlarmCount: 0 },
+    ];
+
     static readonly totalAlarm = [
         72, 68, 75, 81, 64, 79, 71, 83, 69, 77,
         74, 85, 66, 80, 78, 88, 67, 76, 73, 82,

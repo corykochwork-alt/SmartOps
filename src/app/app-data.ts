@@ -12,6 +12,7 @@ export class AppData implements InMemoryDbService {
     const kpis = DashboardData.kpis;
     const topAlarmSources = DashboardData.topAlarmSources;
     const alarms = DashboardData.alarms;
+    const topAssets = DashboardData.topAssets;
     const totalAlarms = DashboardData.totalAlarm;
     const criticalAlarms = DashboardData.criticalAlarms;
     const warningAlarms = DashboardData.warningAlarms;
@@ -19,6 +20,7 @@ export class AppData implements InMemoryDbService {
       kpis,
       'top-alarm-sources': topAlarmSources,
       alarms,
+      'top-assets': topAssets,
       totalAlarms,
       criticalAlarms,
       warningAlarms,
