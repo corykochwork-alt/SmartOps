@@ -1,1 +1,62 @@
-<p>assets works!</p>
+<main class="assets-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Operations inventory</p>
+      <h1>Assets</h1>
+      <p class="page-description">Monitor the equipment connected to your SmartOps network.</p>
+    </div>
+    <span class="asset-count">2 assets</span>
+  </header>
+
+  <section class="asset-panel" aria-labelledby="asset-list-heading">
+    <div class="panel-header">
+      <div>
+        <h2 id="asset-list-heading">Asset list</h2>
+        <p>Review status, location, and the latest update for each asset.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter assets">
+        <label for="asset-search">Search</label>
+        <input id="asset-search" type="search" placeholder="Search assets...">
+
+        <label for="asset-status">Status</label>
+        <select id="asset-status">
+          <option value="all">All statuses</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <caption class="visually-hidden">Current assets and their operational status</caption>
+        <thead>
+          <tr>
+            <th scope="col">Asset name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Status</th>
+            <th scope="col">Last update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="asset-name">Asset 1</td>
+            <td>Type 1</td>
+            <td>Location 1</td>
+            <td><span class="status status-active">Active</span></td>
+            <td>2024-06-10</td>
+          </tr>
+          <tr>
+            <td class="asset-name">Asset 2</td>
+            <td>Type 2</td>
+            <td>Location 2</td>
+            <td><span class="status status-inactive">Inactive</span></td>
+            <td>2024-06-09</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

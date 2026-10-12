@@ -22,6 +22,8 @@ describe('Assets', () => {
 
   it('should render the assets page content', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('assets works!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Assets');
+    expect(compiled.querySelector('table')).not.toBeNull();
+    expect(compiled.textContent).toContain('Asset 1');
   });
 });
