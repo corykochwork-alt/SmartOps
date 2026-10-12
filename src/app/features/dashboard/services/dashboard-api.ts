@@ -10,7 +10,7 @@ export class DashboardApi {
   private readonly baseUrl = 'api/dashboard';
   private readonly requestTimeout = 10_000;
 
-  getDashboardMetrics = httpResource<DashboardMetrics>(
+  readonly getDashboardMetrics = httpResource<DashboardMetrics>(
     () => ({ url: `${this.baseUrl}/kpis`, timeout: this.requestTimeout }),
     {
       defaultValue: {
@@ -22,27 +22,27 @@ export class DashboardApi {
     },
   );
 
-  getTopAlarmSources = httpResource<{ Name: string; Percentage: number }[]>(
+  readonly getTopAlarmSources = httpResource<{ Name: string; Percentage: number }[]>(
     () => ({ url: `${this.baseUrl}/top-alarm-sources`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
-  getRecentAlarms = httpResource<DashboardAlarm[]>(
+  readonly getRecentAlarms = httpResource<DashboardAlarm[]>(
     () => ({ url: `${this.baseUrl}/alarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
-  getTotalAlarms = httpResource<number[]>(
+  readonly getTotalAlarms = httpResource<number[]>(
     () => ({ url: `${this.baseUrl}/totalAlarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
-  getCriticalAlarms = httpResource<number[]>(
+  readonly getCriticalAlarms = httpResource<number[]>(
     () => ({ url: `${this.baseUrl}/criticalAlarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
-  getWarningAlarms = httpResource<number[]>(
+  readonly getWarningAlarms = httpResource<number[]>(
     () => ({ url: `${this.baseUrl}/warningAlarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
