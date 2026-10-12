@@ -1,29 +1,69 @@
 .container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    display: contents;
 }
 
 .container > div {
-    margin:10px;
+    min-width: 0;
     padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e1e7e9;
+    border-radius: 6px;
+    box-shadow: 0 8px 18px rgba(24, 33, 43, 0.06);
 }
 
 .container > div:last-child li {
     display: flex;
     justify-content: space-between;
     gap: 24px;
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.8;
 }
 
 .container > div:first-child {
-    flex: 1;
     min-width: 0;
+}
+
+h1 {
+    margin: 0 0 16px;
+    color: #18212b;
+    font-size: 1.35rem;
+    line-height: 1.2;
+}
+
+select {
+    margin-bottom: 10px;
+    padding: 6px 28px 6px 8px;
+    color: #18212b;
+    background: #ffffff;
+    border: 1px solid #b9c6ca;
+    border-radius: 4px;
+    font: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .chart-wrapper {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 300px;
+}
+
+.chart-wrapper p {
+    margin: 10px 0 0;
+    color: #617078;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 520px) {
+    .container > div {
+        padding: 16px;
+    }
+
+    .chart-wrapper {
+        height: 240px;
+    }
 }

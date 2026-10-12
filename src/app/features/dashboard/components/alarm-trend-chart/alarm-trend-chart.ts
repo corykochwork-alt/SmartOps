@@ -1,4 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BaseChartDirective } from 'ng2-charts'
 import {
 ChartConfiguration,
@@ -8,13 +9,20 @@ import { DashboardApi } from '../../services/dashboard-api';
 
 @Component({
   selector: 'app-alarm-trend-chart',
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, FormsModule],
   templateUrl: './alarm-trend-chart.html',
   styleUrl: './alarm-trend-chart.css',
 })
 export class AlarmTrendChart {
   private dashboardApi = inject(DashboardApi);
   alarmSources;
+  durations = [
+    1,
+    7,
+    30,
+    90
+  ];
+  selectedDuration = 30;
 
   constructor() {
     this.alarmSources = this.dashboardApi.getTopAlarmSources.value;

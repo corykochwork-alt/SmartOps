@@ -4,13 +4,13 @@
 
 .header h1 {
     margin: 0;
-    font-size: 3rem;
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
     font-weight: 600;
 }
 
 .container p {
     margin: 0px;
-    font-size: 4rem;
+    font-size: clamp(2.25rem, 4vw, 3.2rem);
     font-weight: 700;
     font-variant-numeric: tabular-nums;
 }
@@ -22,22 +22,28 @@
     flex-direction: column;
     box-sizing: border-box;
     text-align: center;
-    box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.18);
+    background: #ffffff;
+    border: 1px solid #e1e7e9;
+    border-radius: 6px;
+    box-shadow: 0 8px 18px rgba(24, 33, 43, 0.08);
+    overflow: hidden;
 }
 
 div.header {
-    flex: 0 0 140px;
+    flex: 0 0 88px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
-    /* Dark teal */
     background-color: #176b68;
     color: white;
     font-size: 20px;
 }
 
 div.container {
-    padding: 10px;
+    display: grid;
+    min-height: 88px;
+    place-items: center;
+    padding: 12px;
 }
