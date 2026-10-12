@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { KipCards } from '../../components/kip-cards/kip-cards';
-import { DashboardApi } from '../../services/dashboard-api';
 import { AlarmTrendChart } from '../../components/alarm-trend-chart/alarm-trend-chart';
 import { RecentAlarms } from '../../components/recent-alarms/recent-alarms';
 import { RouterLink } from '@angular/router';
+import { DashboardStore } from '../../state/dashboard.store';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +12,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
-  metrics;
-  isLoading;
-  hasError;
+  private readonly dashboardStore = inject(DashboardStore);
 
-  constructor(private dashboardApi: DashboardApi) {
-    this.metrics = dashboardApi.getDashboardMetrics.value;
-    this.isLoading = dashboardApi.getDashboardMetrics.isLoading;
-    this.hasError = dashboardApi.getDashboardMetrics.error;
-  }
+  readonly metrics = this.dashboardStore.metrics;
+  readonly isLoading = this.dashboardStore.isLoading;
+  readonly hasError = this.dashboardStore.error;
 }

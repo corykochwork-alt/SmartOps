@@ -7,33 +7,37 @@ import { httpResource } from '@angular/common/http';
 })
 export class DashboardApi {
   private baseUrl = 'api/dashboard';
+  private requestTimeout = 10_000;
 
-  getDashboardMetrics = httpResource<DashboardMetrics>(() => `${this.baseUrl}/kpis`, {
-    defaultValue: {
-      activeAlarms: { Name: '', Number: 0 },
-      assetsOnline: { Name: '', Number: 0 },
-      uptime: { Name: '', Number: 0 },
-      averageResponse: { Name: '', Number: 0 },
+  getDashboardMetrics = httpResource<DashboardMetrics>(
+    () => ({ url: `${this.baseUrl}/kpis`, timeout: this.requestTimeout }),
+    {
+      defaultValue: {
+        activeAlarms: { Name: '', Number: 0 },
+        assetsOnline: { Name: '', Number: 0 },
+        uptime: { Name: '', Number: 0 },
+        averageResponse: { Name: '', Number: 0 },
+      },
     },
-  });
+  );
 
   getTopAlarmSources = httpResource<{ Name: string; Percentage: number }[]>(
-    () => `${this.baseUrl}/top-alarm-sources`,
+    () => ({ url: `${this.baseUrl}/top-alarm-sources`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
   getTotalAlarms = httpResource<number[]>(
-    () => `${this.baseUrl}/totalAlarms`,
+    () => ({ url: `${this.baseUrl}/totalAlarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
   getCriticalAlarms = httpResource<number[]>(
-    () => `${this.baseUrl}/criticalAlarms`,
+    () => ({ url: `${this.baseUrl}/criticalAlarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 
   getWarningAlarms = httpResource<number[]>(
-    () => `${this.baseUrl}/warningAlarms`,
+    () => ({ url: `${this.baseUrl}/warningAlarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 }
