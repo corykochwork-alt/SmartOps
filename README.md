@@ -1,26 +1,36 @@
-# SmartOps Monitor   [![build](https://github.com/corykochwork-alt/SmartOps/actions/workflows/build.yml/badge.svg)](https://github.com/corykochwork-alt/SmartOps/actions/workflows/build.yml)
+# SmartOps Monitor
+
+[![build](https://github.com/corykochwork-alt/SmartOps/actions/workflows/build.yml/badge.svg)](https://github.com/corykochwork-alt/SmartOps/actions/workflows/build.yml)
+[![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+> A focused operations console for seeing asset health, alarm activity, and maintenance signals at a glance.
 
 SmartOps Monitor is an Angular application for monitoring operational health across industrial assets. It brings alarms, asset status, analytics, notifications, and work-order workflows into one browser-based operations console.
 
-## Dashboard Tour
+## Product Preview
 
-The dashboard is the starting point for a quick health check. It combines:
+The dashboard is designed for a fast shift-level health check: KPI cards surface the current state, trend lines show alarm movement, and recent critical events keep the next action visible.
 
-- **KPI cards** for active alarms, assets online, uptime, and average response time.
-- **Alarm trend chart** showing total, critical, and warning alarms over the last 30 days.
-- **Top alarm sources** highlighting the assets or areas generating the most alarms.
-- **Recent critical events** with severity, asset, message, time, and resolution status.
+<p align="center">
+	<img src="docs/dashboard.png" alt="SmartOps Monitor dashboard with KPI cards, alarm trends, top alarm sources, and recent critical events" width="820">
+</p>
 
-![SmartOps Monitor dashboard](docs/image.png)
+<p align="center"><em>Dashboard overview with live in-memory development data</em></p>
+
+<table>
+	<tr>
+		<td width="50%"><img src="docs/assets.png" alt="SmartOps Monitor assets inventory with search and status filters"></td>
+		<td width="50%"><strong>Asset inventory</strong><br>Browse connected equipment, locations, status, and the latest update from one searchable view.</td>
+	</tr>
+</table>
 
 ## Application Areas
-
-The primary navigation is organized around the workflows an operations team uses most often:
 
 | Area | Purpose |
 | --- | --- |
 | Dashboard | Review current operational health and recent alarm activity. |
-| Assets | Browse and monitor connected equipment. |
+| Assets | Browse and monitor connected equipment with status filters. |
 | Alarms | Investigate active and historical alarm conditions. |
 | Analytics | Explore operational trends and performance data. |
 | Work Orders | Track maintenance work and follow-up actions. |
@@ -48,7 +58,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200/` in a browser. Angular will rebuild and reload the application as source files change.
+Open `http://localhost:4200/` in a browser. Angular will rebuild and reload the application as source files change. The local experience uses seeded in-memory data, so it can be explored without a backend.
 
 ## Development Commands
 
@@ -66,3 +76,7 @@ Open `http://localhost:4200/` in a browser. Angular will rebuild and reload the 
 - Chart.js with `ng2-charts`
 - RxJS
 - Vitest and JSDOM for unit testing
+
+## Project Status
+
+This repository is an actively evolving operations-monitoring prototype. The dashboard and asset inventory are wired with local data and feature-level tests; additional workflow pages are being built out behind the same navigation shell.
