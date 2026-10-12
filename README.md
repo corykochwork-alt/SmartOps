@@ -4,9 +4,11 @@
 [![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
+Live demo: [SmartOps Monitor](https://smart-operations.netlify.app/)
+
 > A focused operations console for seeing asset health, alarm activity, and maintenance signals at a glance.
 
-SmartOps Monitor is an Angular application for monitoring operational health across industrial assets. It brings alarms, asset status, analytics, notifications, and work-order workflows into one browser-based operations console.
+SmartOps Monitor is an Angular application for monitoring operational health across industrial assets. It brings alarms, asset status, analytics, notifications, and work-order workflows into one brows[...]
 
 ## Product Preview
 
@@ -58,7 +60,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200/` in a browser. Angular will rebuild and reload the application as source files change. The local experience uses seeded in-memory data, so it can be explored without a backend.
+Open `http://localhost:4200/` in a browser. Angular will rebuild and reload the application as source files change. The local experience uses seeded in-memory data, so it can be explored without a bac[...]
 
 ## Development Commands
 
@@ -79,4 +81,4 @@ Open `http://localhost:4200/` in a browser. Angular will rebuild and reload the 
 
 ## Project Status
 
-This repository is an actively evolving operations-monitoring prototype. The dashboard and asset inventory are wired with local data and feature-level tests; additional workflow pages are being built out behind the same navigation shell.
+This repository is an actively evolving operations-monitoring prototype. The dashboard and asset inventory are wired with local data and feature-level tests; additional workflow pages are being built [...]
