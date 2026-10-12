@@ -30,6 +30,7 @@ describe('Dashboard', () => {
               error: signal(undefined),
             },
             getTopAlarmSources: { value: signal([]), isLoading: signal(false), error: signal(undefined) },
+            getRecentAlarms: { value: signal([]), isLoading: signal(false), error: signal(undefined) },
             getTotalAlarms: { value: signal([]), isLoading: signal(false), error: signal(undefined) },
             getCriticalAlarms: { value: signal([]), isLoading: signal(false), error: signal(undefined) },
             getWarningAlarms: { value: signal([]), isLoading: signal(false), error: signal(undefined) },

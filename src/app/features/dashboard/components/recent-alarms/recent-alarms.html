@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        @for(alarm of alarms; track alarm.AssetName) {
+        @for(alarm of alarms(); track alarm.AssetName) {
             <tr>
                 <td>{{ alarm.Severity }}</td>
                 <td>{{ alarm.AssetName }}</td>

@@ -1,9 +1,9 @@
 <div class="container">
     <div>
-        <h1>Alarm Trend (Last 30 Days)</h1>
-                <select [(ngModel)]="selectedDuration">
+        <h1>Alarm Trend (Last {{ selectedDuration() }} Days)</h1>
+        <select [ngModel]="selectedDuration()" (ngModelChange)="onDurationChange($event)">
             @for (duration of durations; track duration) {
-                            <option [ngValue]="duration">{{ duration }} days</option>
+                <option [ngValue]="duration">{{ duration }} days</option>
             }
         </select>
         <div class="chart-wrapper">

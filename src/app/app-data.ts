@@ -11,12 +11,14 @@ export class AppData implements InMemoryDbService {
   createDb() {
     const kpis = DashboardData.kpis;
     const topAlarmSources = DashboardData.topAlarmSources;
+    const alarms = DashboardData.alarms;
     const totalAlarms = DashboardData.totalAlarm;
     const criticalAlarms = DashboardData.criticalAlarms;
     const warningAlarms = DashboardData.warningAlarms;
     return {
       kpis,
       'top-alarm-sources': topAlarmSources,
+      alarms,
       totalAlarms,
       criticalAlarms,
       warningAlarms,

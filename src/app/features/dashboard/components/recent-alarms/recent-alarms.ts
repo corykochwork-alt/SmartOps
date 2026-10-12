@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { DashboardData } from '../../services/dashboard-data';
+import { inject } from '@angular/core';
+import { DashboardStore } from '../../state/dashboard.store';
 
 @Component({
   selector: 'app-recent-alarms',
@@ -8,5 +9,6 @@ import { DashboardData } from '../../services/dashboard-data';
   styleUrl: './recent-alarms.css',
 })
 export class RecentAlarms {
-  alarms = DashboardData.alarms;
+  private readonly dashboardStore = inject(DashboardStore);
+  readonly alarms = this.dashboardStore.recentAlarms;
 }

@@ -5,7 +5,7 @@ import {
 ChartConfiguration,
 ChartOptions
 } from 'chart.js';
-import { DashboardApi } from '../../services/dashboard-api';
+import { DashboardStore } from '../../state/dashboard.store';
 
 @Component({
   selector: 'app-alarm-trend-chart',
@@ -14,36 +14,14 @@ import { DashboardApi } from '../../services/dashboard-api';
   styleUrl: './alarm-trend-chart.css',
 })
 export class AlarmTrendChart {
-  private dashboardApi = inject(DashboardApi);
-  alarmSources;
-  durations = [
-    1,
-    7,
-    30,
-    90
-  ];
-  selectedDuration = 30;
-
-  constructor() {
-    this.alarmSources = this.dashboardApi.getTopAlarmSources.value;
-  }
-
-  public isChartLoading = computed(
-    () =>
-      this.dashboardApi.getTotalAlarms.isLoading() ||
-      this.dashboardApi.getCriticalAlarms.isLoading() ||
-      this.dashboardApi.getWarningAlarms.isLoading(),
-  );
-
-  public chartError = computed(
-    () =>
-      this.dashboardApi.getTotalAlarms.error() ??
-      this.dashboardApi.getCriticalAlarms.error() ??
-      this.dashboardApi.getWarningAlarms.error(),
-  );
-
-  public isSourcesLoading = this.dashboardApi.getTopAlarmSources.isLoading;
-  public sourcesError = this.dashboardApi.getTopAlarmSources.error;
+  private readonly dashboardStore = inject(DashboardStore);
+  readonly alarmSources = this.dashboardStore.topAlarmSources;
+  readonly durations = this.dashboardStore.trendDurations;
+  readonly selectedDuration = this.dashboardStore.trendDuration;
+  readonly isChartLoading = this.dashboardStore.isTrendLoading;
+  readonly chartError = this.dashboardStore.trendError;
+  readonly isSourcesLoading = this.dashboardStore.isSourcesLoading;
+  readonly sourcesError = this.dashboardStore.sourcesError;
 
 // #3B82F6  /* blue */
 // #CA8A04  /* yellow */
@@ -52,36 +30,43 @@ export class AlarmTrendChart {
 // #8B5CF6  /* purple */
 // #F97316  /* orange */
 
-// TODO allow filtering by last 24 hours, last 7 days, last 30 days and last 90 days
-  public lineChartData = computed<ChartConfiguration<'line'>['data']>(() => ({
-    labels: Array.from({ length: 30 }, (_, i) => i + 1),
-    datasets: [
-      {
-        label: 'Total Alarms',
-        data: this.dashboardApi.getTotalAlarms.value(),
-        borderColor: '#3b82f6',
-        backgroundColor: 'rgba(59, 130, 246, 0.2)',
-        tension: 0.4,
-        //fill: true
-      },
-      {
-        label: 'Critical Alarms',
-        data: this.dashboardApi.getCriticalAlarms.value(),
-        borderColor: '#EF4444',
-        backgroundColor: 'rgba(59, 130, 246, 0.2)',
-        tension: 0.4,
-        //fill: true
-      },
-      {
-        label: 'Warning Alarms',
-        data: this.dashboardApi.getWarningAlarms.value(),
-        borderColor: '#EAB308',
-        backgroundColor: 'rgba(59, 130, 246, 0.2)',
-        tension: 0.4,
-        //fill: true
-      }
-    ]
-  }));
+  onDurationChange(duration: number): void {
+    this.dashboardStore.setTrendDuration(duration);
+  }
+
+  public lineChartData = computed<ChartConfiguration<'line'>['data']>(() => {
+    const duration = this.selectedDuration();
+    const totalAlarms = this.dashboardStore.totalAlarms().slice(-duration);
+    const criticalAlarms = this.dashboardStore.criticalAlarms().slice(-duration);
+    const warningAlarms = this.dashboardStore.warningAlarms().slice(-duration);
+
+    return {
+      labels: Array.from({ length: totalAlarms.length }, (_, i) => i + 1),
+      datasets: [
+        {
+          label: 'Total Alarms',
+          data: totalAlarms,
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          tension: 0.4,
+        },
+        {
+          label: 'Critical Alarms',
+          data: criticalAlarms,
+          borderColor: '#EF4444',
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          tension: 0.4,
+        },
+        {
+          label: 'Warning Alarms',
+          data: warningAlarms,
+          borderColor: '#EAB308',
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          tension: 0.4,
+        },
+      ],
+    };
+  });
 
   public lineChartOptions: ChartOptions<'line'> = {
     responsive: true,

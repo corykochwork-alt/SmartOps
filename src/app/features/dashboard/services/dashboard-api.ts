@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { DashboardMetrics } from '../models/dashboard-metrics';
+import { DashboardAlarm } from '../models/dashboard-alarm';
 import { httpResource } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardApi {
-  private baseUrl = 'api/dashboard';
-  private requestTimeout = 10_000;
+  private readonly baseUrl = 'api/dashboard';
+  private readonly requestTimeout = 10_000;
 
   getDashboardMetrics = httpResource<DashboardMetrics>(
     () => ({ url: `${this.baseUrl}/kpis`, timeout: this.requestTimeout }),
@@ -23,6 +24,11 @@ export class DashboardApi {
 
   getTopAlarmSources = httpResource<{ Name: string; Percentage: number }[]>(
     () => ({ url: `${this.baseUrl}/top-alarm-sources`, timeout: this.requestTimeout }),
+    { defaultValue: [] },
+  );
+
+  getRecentAlarms = httpResource<DashboardAlarm[]>(
+    () => ({ url: `${this.baseUrl}/alarms`, timeout: this.requestTimeout }),
     { defaultValue: [] },
   );
 

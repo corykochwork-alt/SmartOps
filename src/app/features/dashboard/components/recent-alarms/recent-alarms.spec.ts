@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
 
 import { RecentAlarms } from './recent-alarms';
+import { DashboardStore } from '../../state/dashboard.store';
 
 describe('RecentAlarms', () => {
   let component: RecentAlarms;
@@ -9,6 +11,36 @@ describe('RecentAlarms', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RecentAlarms],
+      providers: [
+        {
+          provide: DashboardStore,
+          useValue: {
+            recentAlarms: signal([
+              {
+                Severity: 'Critical',
+                AssetName: 'Conveyor A-12',
+                Message: 'Temperature High',
+                Time: '12:15 PM',
+                Status: 'Unacknowledged',
+              },
+              {
+                Severity: 'Critical',
+                AssetName: 'Robot Cell',
+                Message: 'Offline',
+                Time: '11:59 AM',
+                Status: 'Acknowledged',
+              },
+              {
+                Severity: 'Warning',
+                AssetName: 'Sensor',
+                Message: 'Drift',
+                Time: '11:42 AM',
+                Status: 'Resolved',
+              },
+            ]),
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RecentAlarms);
