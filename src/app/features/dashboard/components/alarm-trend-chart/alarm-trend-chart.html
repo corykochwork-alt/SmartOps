@@ -9,14 +9,25 @@
         <div class="chart-wrapper">
             <canvas baseChart [data]="lineChartData()" [options]="lineChartOptions" [type]="'line'">
             </canvas>
+            @if (isChartLoading()) {
+                <div class="chart-overlay">Loading alarm trend…</div>
+            } @else if (chartError()) {
+                <div class="chart-overlay error">Unable to load alarm trend.</div>
+            }
             <p>Last {{ selectedDuration }} Days</p>
         </div>
     </div>
     <div>
         <h1>Top Alarm Sources</h1>
         <ul>
-            @for(source of alarmSources(); track source.Name) {
-                <li>{{ source.Name }}<span>{{ source.Percentage }}%</span></li>
+            @if (isSourcesLoading()) {
+                <li>Loading…</li>
+            } @else if (sourcesError()) {
+                <li>Unable to load alarm sources.</li>
+            } @else {
+                @for(source of alarmSources(); track source.Name) {
+                    <li>{{ source.Name }}<span>{{ source.Percentage }}%</span></li>
+                }
             }
         </ul>
     </div>

@@ -45,3 +45,21 @@ div.container {
     place-items: center;
     padding: 12px;
 }
+
+.skeleton {
+    width: 60%;
+    height: 1em;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--color-border) 25%, var(--color-surface) 50%, var(--color-border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.error {
+    color: #ef4444;
+}
+
+@keyframes skeleton-pulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

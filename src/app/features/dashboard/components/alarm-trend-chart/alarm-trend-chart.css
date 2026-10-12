@@ -54,6 +54,20 @@ ul {
     height: 300px;
 }
 
+.chart-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.chart-overlay.error {
+    color: #ef4444;
+}
+
 .chart-wrapper p {
     margin: 10px 0 0;
     color: #617078;

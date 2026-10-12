@@ -28,6 +28,23 @@ export class AlarmTrendChart {
     this.alarmSources = this.dashboardApi.getTopAlarmSources.value;
   }
 
+  public isChartLoading = computed(
+    () =>
+      this.dashboardApi.getTotalAlarms.isLoading() ||
+      this.dashboardApi.getCriticalAlarms.isLoading() ||
+      this.dashboardApi.getWarningAlarms.isLoading(),
+  );
+
+  public chartError = computed(
+    () =>
+      this.dashboardApi.getTotalAlarms.error() ??
+      this.dashboardApi.getCriticalAlarms.error() ??
+      this.dashboardApi.getWarningAlarms.error(),
+  );
+
+  public isSourcesLoading = this.dashboardApi.getTopAlarmSources.isLoading;
+  public sourcesError = this.dashboardApi.getTopAlarmSources.error;
+
 // #3B82F6  /* blue */
 // #CA8A04  /* yellow */
 // #10B981  /* green */

@@ -13,8 +13,12 @@ import { RouterLink } from '@angular/router';
 })
 export class Dashboard {
   metrics;
+  isLoading;
+  hasError;
 
   constructor(private dashboardApi: DashboardApi) {
     this.metrics = dashboardApi.getDashboardMetrics.value;
+    this.isLoading = dashboardApi.getDashboardMetrics.isLoading;
+    this.hasError = dashboardApi.getDashboardMetrics.error;
   }
 }

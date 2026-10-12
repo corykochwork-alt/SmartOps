@@ -3,6 +3,12 @@
         <h1>{{ kpiName() }}</h1>
     </div>
     <div class="container">
-        <p>{{ kpiNumber() }}</p>
+        @if (isLoading()) {
+            <p class="skeleton">&nbsp;</p>
+        } @else if (hasError()) {
+            <p class="error">--</p>
+        } @else {
+            <p>{{ kpiNumber() }}</p>
+        }
     </div>
 </div>

@@ -9,4 +9,6 @@ import { Component, input } from '@angular/core';
 export class KipCards {
   kpiName = input.required<string>();
   kpiNumber = input.required<number>();
+  isLoading = input(false);
+  hasError = input(false);
 }
