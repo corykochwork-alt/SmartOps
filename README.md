@@ -4,7 +4,7 @@
 [![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Live demo: https://smart-operations.netlify.app/
+Live demo: [SmartOps Monitor](https://smart-operations.netlify.app/)
 
 > A focused operations console for seeing asset health, alarm activity, and maintenance signals at a glance.
 
