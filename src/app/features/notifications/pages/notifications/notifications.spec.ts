@@ -22,6 +22,6 @@ describe('Notifications', () => {
 
   it('should render the notifications page content', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('notifications works!');
+    expect(compiled.textContent).toContain('Notifications are under construction');
   });
 });

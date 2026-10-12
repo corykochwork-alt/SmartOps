@@ -22,6 +22,6 @@ describe('MainLayout', () => {
 
   it('should render the main layout text', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('main-layout works!');
+    expect(compiled.querySelector('main')).toBeTruthy();
   });
 });

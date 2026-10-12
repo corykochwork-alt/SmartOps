@@ -22,6 +22,6 @@ describe('Footer', () => {
 
   it('should render the footer text', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('footer works!');
+    expect(compiled.textContent).toContain('SmartOps Monitor');
   });
 });

@@ -22,6 +22,6 @@ describe('Admin', () => {
 
   it('should render the admin page content', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('admin works!');
+    expect(compiled.textContent).toContain('Administration is under construction');
   });
 });

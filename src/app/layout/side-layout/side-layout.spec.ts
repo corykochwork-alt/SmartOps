@@ -22,6 +22,6 @@ describe('SideLayout', () => {
 
   it('should render the side layout text', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('side-layout works!');
+    expect(compiled.querySelector('aside')).toBeTruthy();
   });
 });

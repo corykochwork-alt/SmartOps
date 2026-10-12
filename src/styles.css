@@ -40,3 +40,75 @@ app-root {
     --color-accent-dark: #286c57;
     --shadow-surface: 0 8px 18px rgba(24, 33, 43, 0.06);
 }
+
+.under-construction {
+    display: grid;
+    place-items: center;
+    min-height: min(34rem, calc(100vh - 10rem));
+    padding: 3rem 1.5rem;
+}
+
+.under-construction__panel {
+    width: min(100%, 42rem);
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-surface);
+    text-align: center;
+}
+
+.under-construction__mark {
+    display: inline-grid;
+    width: 3.5rem;
+    height: 3.5rem;
+    place-items: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid #b8d9cb;
+    border-radius: 50%;
+    background: #eef8f3;
+    color: var(--color-accent-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.under-construction__eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--color-accent-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.under-construction h1 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+}
+
+.under-construction__message {
+    max-width: 30rem;
+    margin: 1rem auto 0;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.under-construction__note {
+    margin: 1.5rem 0 0;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.layout-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}

@@ -22,6 +22,6 @@ describe('Alarms', () => {
 
   it('should render the alarms page content', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('alarms works!');
+    expect(compiled.textContent).toContain('Alarm management is under construction');
   });
 });

@@ -22,6 +22,6 @@ describe('Analytics', () => {
 
   it('should render the analytics page content', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('analytics works!');
+    expect(compiled.textContent).toContain('Analytics is under construction');
   });
 });
