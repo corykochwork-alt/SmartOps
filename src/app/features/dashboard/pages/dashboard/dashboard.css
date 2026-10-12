@@ -18,6 +18,11 @@ app-kip-cards {
     padding: 20px;
 }
 
+.alarms > app-alarm-trend-chart,
+.alarms > app-recent-alarms {
+    min-width: 0;
+}
+
 @media (max-width: 900px) {
     .kpis {
         grid-template-columns: repeat(2, minmax(0, 1fr));

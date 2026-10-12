@@ -68,6 +68,7 @@ export class AlarmTrendChart {
 
   public lineChartOptions: ChartOptions<'line'> = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: true

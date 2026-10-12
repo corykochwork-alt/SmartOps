@@ -5,7 +5,16 @@ import {
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { provideCharts } from 'ng2-charts';
+import {
+  CategoryScale,
+  Legend,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+  Tooltip,
+} from 'chart.js';
 
 import { routes } from './app.routes';
 
@@ -17,7 +26,17 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(),
-    provideCharts(withDefaultRegisterables()),
+    provideCharts({
+      registerables: [
+        CategoryScale,
+        LinearScale,
+        LineController,
+        LineElement,
+        PointElement,
+        Tooltip,
+        Legend,
+      ],
+    }),
     importProvidersFrom(
       InMemoryWebApiModule.forRoot(AppData, { delay: 1000 })
     )

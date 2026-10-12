@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './features/dashboard/pages/dashboard/dashboard';
 import { Assets } from './features/assets/pages/assets/assets';
 import { Alarms } from './features/alarms/pages/alarms/alarms';
 import { Admin } from './features/admin/pages/admin/admin';
@@ -10,30 +9,45 @@ import { WorkOrders } from './features/work-orders/pages/work-orders/work-orders
 export const routes: Routes = [
     {
         path: '',
-        component: Dashboard
+        loadComponent: () =>
+          import('./features/dashboard/pages/dashboard/dashboard')
+          .then(m => m.Dashboard)
+
     },
     {
         path: 'assets',
-        component: Assets
+        loadComponent: () =>
+          import('./features/assets/pages/assets/assets')
+          .then(m => m.Assets)
     },
     {
         path: 'alarms',
-        component: Alarms
+        loadComponent: () =>
+          import('./features/alarms/pages/alarms/alarms')
+          .then(m => m.Alarms)
     },
     {
         path: 'admin',
-        component: Admin
+        loadComponent: () =>
+          import('./features/admin/pages/admin/admin')
+          .then(m => m.Admin)
     },
     {
         path: 'analytics',
-        component: Analytics
+        loadComponent: () =>
+          import('./features/analytics/pages/analytics/analytics')
+          .then(m => m.Analytics)
     },
     {
         path: 'notifications',
-        component: Notifications
+        loadComponent: () =>
+          import('./features/notifications/pages/notifications/notifications')
+          .then(m => m.Notifications)
     },
     {
         path: 'work-orders',
-        component: WorkOrders
+        loadComponent: () =>
+          import('./features/work-orders/pages/work-orders/work-orders')
+          .then(m => m.WorkOrders)
     }
 ];
