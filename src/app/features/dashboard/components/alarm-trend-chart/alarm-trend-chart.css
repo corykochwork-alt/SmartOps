@@ -7,10 +7,10 @@
 .container > div {
     min-width: 0;
     padding: 20px;
-    background: #ffffff;
-    border: 1px solid #e1e7e9;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
-    box-shadow: 0 8px 18px rgba(24, 33, 43, 0.06);
+    box-shadow: var(--shadow-surface);
 }
 
 .container > div:last-child li {
@@ -27,7 +27,7 @@
 
 h1 {
     margin: 0 0 16px;
-    color: #18212b;
+    color: var(--color-text);
     font-size: 1.35rem;
     line-height: 1.2;
 }
@@ -35,8 +35,8 @@ h1 {
 select {
     margin-bottom: 10px;
     padding: 6px 28px 6px 8px;
-    color: #18212b;
-    background: #ffffff;
+    color: var(--color-text);
+    background: var(--color-surface);
     border: 1px solid #b9c6ca;
     border-radius: 4px;
     font: inherit;

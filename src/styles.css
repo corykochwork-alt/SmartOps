@@ -5,7 +5,7 @@ html,
 body,
 app-root {
     min-height: 100%;
-    background: #e3e9eb;
+    background: var(--color-page);
 }
 
 html,
@@ -16,7 +16,7 @@ body {
 body {
     font-family: 'IBM Plex Sans', sans-serif;
     margin: 0;
-    color: #18212b;
+    color: var(--color-text);
 }
 
 app-root {
@@ -27,4 +27,16 @@ app-root {
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+:root {
+    --color-page: #e3e9eb;
+    --color-surface: #ffffff;
+    --color-text: #18212b;
+    --color-muted: #53636b;
+    --color-border: #e1e7e9;
+    --color-border-subtle: #edf0f1;
+    --color-accent: #3b9b79;
+    --color-accent-dark: #286c57;
+    --shadow-surface: 0 8px 18px rgba(24, 33, 43, 0.06);
 }

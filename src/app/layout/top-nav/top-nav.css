@@ -5,7 +5,7 @@
     gap: 20px;
     padding: 14px 24px 16px;
     background: #20252b;
-    border-bottom: 3px solid #3b9b79;
+    border-bottom: 3px solid var(--color-accent);
 }
 
 .brand {

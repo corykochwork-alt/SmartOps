@@ -13,8 +13,7 @@
 }
 
 .eyebrow {
-	margin: 0 0 6px;
-	color: #3b9b79;
+	color: var(--color-accent);
 	font-size: 0.75rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
@@ -29,21 +28,20 @@ p {
 
 h1 {
 	margin-bottom: 6px;
-	color: #18212b;
+	color: var(--color-text);
 	font-size: 1.75rem;
 	line-height: 1.2;
 }
 
-.page-description,
 .panel-header p {
 	margin-bottom: 0;
-	color: #53636b;
+	color: var(--color-muted);
 	font-size: 0.95rem;
 }
 
 .asset-count {
 	padding: 7px 10px;
-	color: #286c57;
+	color: var(--color-accent-dark);
 	background: #e4f2ed;
 	border: 1px solid #c8e5da;
 	border-radius: 3px;
@@ -54,10 +52,10 @@ h1 {
 
 .asset-panel {
 	overflow: hidden;
-	background: #ffffff;
-	border: 1px solid #e1e7e9;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
 	border-radius: 6px;
-	box-shadow: 0 8px 18px rgba(24, 33, 43, 0.06);
+	box-shadow: var(--shadow-surface);
 }
 
 .panel-header {
@@ -66,12 +64,12 @@ h1 {
 	justify-content: space-between;
 	gap: 24px;
 	padding: 20px;
-	border-bottom: 1px solid #edf0f1;
+	border-bottom: 1px solid var(--color-border-subtle);
 }
 
 h2 {
 	margin-bottom: 6px;
-	color: #18212b;
+	color: var(--color-text);
 	font-size: 1.1rem;
 	line-height: 1.25;
 }
@@ -84,7 +82,7 @@ h2 {
 }
 
 .filters label {
-	color: #53636b;
+	color: var(--color-muted);
 	font-size: 0.8rem;
 	font-weight: 600;
 }
@@ -93,8 +91,8 @@ input,
 select {
 	min-height: 38px;
 	padding: 8px 10px;
-	color: #18212b;
-	background: #ffffff;
+	color: var(--color-text);
+	background: var(--color-surface);
 	border: 1px solid #cbd5d9;
 	border-radius: 3px;
 	font: inherit;
@@ -112,7 +110,7 @@ select {
 input:focus,
 select:focus {
 	outline: 3px solid rgba(59, 155, 121, 0.2);
-	border-color: #3b9b79;
+	border-color: var(--color-accent);
 }
 
 .table-wrapper {
@@ -130,11 +128,11 @@ th,
 td {
 	padding: 14px 20px;
 	text-align: left;
-	border-bottom: 1px solid #edf0f1;
+	border-bottom: 1px solid var(--color-border-subtle);
 }
 
 th {
-	color: #53636b;
+	color: var(--color-muted);
 	background: #fafbfb;
 	font-size: 0.78rem;
 	letter-spacing: 0.04em;
@@ -154,7 +152,7 @@ tbody tr:hover {
 }
 
 .asset-name {
-	color: #18212b;
+	color: var(--color-text);
 	font-weight: 600;
 }
 
@@ -178,7 +176,7 @@ tbody tr:hover {
 }
 
 .status-active::before {
-	background: #3b9b79;
+	background: var(--color-accent);
 }
 
 .status-inactive {

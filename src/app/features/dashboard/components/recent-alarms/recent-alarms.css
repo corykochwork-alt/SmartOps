@@ -2,10 +2,10 @@ table {
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
-    background: #ffffff;
-    border: 1px solid #e1e7e9;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
-    box-shadow: 0 8px 18px rgba(24, 33, 43, 0.06);
+    box-shadow: var(--shadow-surface);
     font-size: 0.95rem;
 }
 
@@ -16,7 +16,7 @@ th, td {
 
 th {
     text-align: left;
-    color: #53636b;
+    color: var(--color-muted);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -24,7 +24,7 @@ th {
 
 h1 {
     margin: 0 0 14px;
-    color: #18212b;
+    color: var(--color-text);
     font-size: 1.35rem;
     line-height: 1.2;
 }
